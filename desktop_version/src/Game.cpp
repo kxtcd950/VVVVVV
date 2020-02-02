@@ -6870,7 +6870,7 @@ void Game::createmenu( std::string t )
                         menuoptions[tcount] = "   " + ed.ListOfMetaData[i].title;
                     }
                     menuoptionsactive[tcount] = true;
-                    std::transform(menuoptions[tcount].begin(), menuoptions[tcount].end(), menuoptions[tcount].begin(), ::tolower);
+                    std::transform(menuoptions[tcount].begin(), menuoptions[tcount].end(), menuoptions[tcount].begin(), reinterpret_cast<char(*)(char)>(::tolower));
                     tcount++;
                 }
             }

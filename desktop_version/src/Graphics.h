@@ -260,7 +260,7 @@ public:
 	std::vector <int> fadebars;
 
 	bool trinketcolset;
-	int trinketr, trinketg, trinketb;
+	Uint8 trinketr, trinketg, trinketb;
 
 	std::vector <textboxclass> textbox;
 	int ntextbox;

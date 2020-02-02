@@ -1292,9 +1292,9 @@ void gamecompleterender(Graphics& dwgfx, Game& game, entityclass& /*obj*/, Utili
         //dwgfx.drawsprite((160-96)+ i * 32, 10, 23, 96+(i*10)+(random()*16), 196-(help.glow)-(random()*16), 255 - (help.glow*2));
     }
 
-    tr = map.r - (help.glow / 4) - fRandom() * 4;
-    tg = map.g - (help.glow / 4) - fRandom() * 4;
-    tb = map.b - (help.glow / 4) - fRandom() * 4;
+    tr = static_cast<int>(map.r - (help.glow / 4) - fRandom() * 4);
+    tg = static_cast<int>(map.g - (help.glow / 4) - fRandom() * 4);
+    tb = static_cast<int>(map.b - (help.glow / 4) - fRandom() * 4);
     if (tr < 0) tr = 0;
     if(tr>255) tr=255;
     if (tg < 0) tg = 0;

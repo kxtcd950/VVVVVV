@@ -2951,7 +2951,7 @@ void editorrender( KeyPoll& key, Graphics& dwgfx, Game& game, mapclass& map, ent
                         if(ed.hookmenupage+i==ed.hookmenu)
                         {
                             std::string tstring="> " + ed.hooklist[(ed.numhooks-1)-(ed.hookmenupage+i)] + " <";
-                            std::transform(tstring.begin(), tstring.end(),tstring.begin(), ::toupper);
+                            std::transform(tstring.begin(), tstring.end(),tstring.begin(), reinterpret_cast<char (*)(char)>(::toupper));
                             dwgfx.Print(16,68+(i*16),tstring,123, 111, 218, true);
                         }
                         else
@@ -3639,8 +3639,8 @@ void editorlogic( KeyPoll& /*key*/, Graphics& dwgfx, Game& game, entityclass& /*
 void editorinput( KeyPoll& key, Graphics& dwgfx, Game& game, mapclass& map, entityclass& obj, UtilityClass& help, musicclass& music )
 {
     //TODO Mouse Input!
-    game.mx = (float) key.mx;
-    game.my = (float) key.my;
+    game.mx = static_cast<int>(key.mx);
+    game.my = static_cast<int>(key.my);
     ed.tilex=(game.mx - (game.mx%8))/8;
     ed.tiley=(game.my - (game.my%8))/8;
     if (game.stretchMode == 1) {

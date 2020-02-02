@@ -905,8 +905,8 @@ void entityclass::createblock( int t, int xp, int yp, int w, int h, int trig /*=
         break;
     case TRIGGER: //Trigger
         blocks[k].type = TRIGGER;
-        blocks[k].x = xp;
-        blocks[k].y = yp;
+        blocks[k].x = static_cast<float>(xp);
+        blocks[k].y = static_cast<float>(yp);
         blocks[k].wp = w;
         blocks[k].hp = h;
         blocks[k].rectset(xp, yp, w, h);
@@ -916,8 +916,8 @@ void entityclass::createblock( int t, int xp, int yp, int w, int h, int trig /*=
         break;
     case DAMAGE: //Damage
         blocks[k].type = DAMAGE;
-        blocks[k].x = xp;
-        blocks[k].y = yp;
+        blocks[k].x = static_cast<float>(xp);
+        blocks[k].y = static_cast<float>(yp);
         blocks[k].wp = w;
         blocks[k].hp = h;
         blocks[k].rectset(xp, yp, w, h);
@@ -926,8 +926,8 @@ void entityclass::createblock( int t, int xp, int yp, int w, int h, int trig /*=
         break;
     case DIRECTIONAL: //Directional
         blocks[k].type = DIRECTIONAL;
-        blocks[k].x = xp;
-        blocks[k].y = yp;
+        blocks[k].x = static_cast<float>(xp);
+        blocks[k].y = static_cast<float>(yp);
         blocks[k].wp = w;
         blocks[k].hp = h;
         blocks[k].rectset(xp, yp, w, h);
@@ -947,8 +947,8 @@ void entityclass::createblock( int t, int xp, int yp, int w, int h, int trig /*=
         break;
     case ACTIVITY: //Activity Zone
         blocks[k].type = ACTIVITY;
-        blocks[k].x = xp;
-        blocks[k].y = yp;
+        blocks[k].x = static_cast<float>(xp);
+        blocks[k].y = static_cast<float>(yp);
         blocks[k].wp = w;
         blocks[k].hp = h;
         blocks[k].rectset(xp, yp, w, h);
@@ -1828,8 +1828,8 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
         entities[k].rule = 0; //Playable character
         entities[k].tile = 0;
         entities[k].colour = 0;
-        entities[k].xp = xp;
-        entities[k].yp = yp;
+        entities[k].xp = static_cast<int>(xp);
+        entities[k].yp = static_cast<int>(yp);
         entities[k].cx = 6;
         entities[k].cy = 2;
         entities[k].w = 12;
@@ -1842,9 +1842,9 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
         break;
     case 1: //Simple enemy, bouncing off the walls
         entities[k].rule = 1;
-        entities[k].xp = xp;
-        entities[k].yp = yp;
-        entities[k].behave = vx;
+        entities[k].xp = static_cast<int>(xp);
+        entities[k].yp = static_cast<int>(yp);
+        entities[k].behave = static_cast<int>(vx);
         entities[k].para = vy;
         entities[k].w = 16;
         entities[k].h = 16;
@@ -1933,8 +1933,8 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
           if (gridmatch(p1, p2, p3, p4, -32, -40, 352, 264)) entities[k].tile = 27;
         }
 
-        entities[k].xp = xp;
-        entities[k].yp = yp;
+        entities[k].xp = static_cast<int>(xp);
+        entities[k].yp = static_cast<int>(yp);
         entities[k].w = 32;
         entities[k].h = 8;
 
@@ -1952,7 +1952,7 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
             entities[k].size = 8;
         }
 
-        entities[k].behave = vx;
+        entities[k].behave = static_cast<int>(vx);
         entities[k].para = vy;
 
         if (int(vx) >= 8  && int(vx) <= 9)
@@ -2003,12 +2003,12 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
             if (game.roomx == 50 && game.roomy == 52) entities[k].tile = 22;
         }
 
-        entities[k].xp = xp;
-        entities[k].yp = yp;
+        entities[k].xp = static_cast<int>(xp);
+        entities[k].yp = static_cast<int>(yp);
         entities[k].cy = -1;
         entities[k].w = 32;
         entities[k].h = 10;
-        entities[k].behave = vx;
+        entities[k].behave = static_cast<int>(vx);
         entities[k].para = vy;
         entities[k].onentity = 1;
         entities[k].animate = 100;
@@ -2020,12 +2020,12 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
         entities[k].type = 3;
         entities[k].size = 1;
         entities[k].tile = 10;
-        entities[k].xp = xp;
-        entities[k].yp = yp;
+        entities[k].xp = static_cast<int>(xp);
+        entities[k].yp = static_cast<int>(yp);
         entities[k].cy = -1;
         entities[k].w = 8;
         entities[k].h = 10;
-        entities[k].behave = vx;
+        entities[k].behave = static_cast<int>(vx);
         entities[k].para = vy;
         entities[k].onentity = 1;
         entities[k].animate = 100;
@@ -2037,11 +2037,11 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
         entities[k].type = 4;
         entities[k].size = 0;
         entities[k].tile = 11;
-        entities[k].xp = xp;
-        entities[k].yp = yp;
+        entities[k].xp = static_cast<int>(xp);
+        entities[k].yp = static_cast<int>(yp);
         entities[k].w = 16;
         entities[k].h = 16;
-        entities[k].behave = vx;
+        entities[k].behave = static_cast<int>(vx);
         entities[k].para = vy;
         entities[k].onentity = 1;
         entities[k].animate = 100;
@@ -2051,8 +2051,8 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
         entities[k].type = 5;  //Particles
         entities[k].colour = 1;
         entities[k].size = 3;
-        entities[k].xp = xp;
-        entities[k].yp = yp;
+        entities[k].xp = static_cast<int>(xp);
+        entities[k].yp = static_cast<int>(yp);
         entities[k].vx = vx;
         entities[k].vy = vy;
 
@@ -2063,8 +2063,8 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
         entities[k].type = 5;  //Particles
         entities[k].colour = 2;
         entities[k].size = 3;
-        entities[k].xp = xp;
-        entities[k].yp = yp;
+        entities[k].xp = static_cast<int>(xp);
+        entities[k].yp = static_cast<int>(yp);
         entities[k].vx = vx;
         entities[k].vy = vy;
 
@@ -2075,8 +2075,8 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
         entities[k].type = 6;
         entities[k].size = 4;
         entities[k].tile = 48;
-        entities[k].xp = xp;
-        entities[k].yp = yp;
+        entities[k].xp = static_cast<int>(xp);
+        entities[k].yp = static_cast<int>(yp);
         entities[k].w = 8;
         entities[k].h = 8;
         entities[k].onentity = 1;
@@ -2091,8 +2091,8 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
         entities[k].type = 7;
         entities[k].size = 0;
         entities[k].tile = 22;
-        entities[k].xp = xp;
-        entities[k].yp = yp;
+        entities[k].xp = static_cast<int>(xp);
+        entities[k].yp = static_cast<int>(yp);
         entities[k].w = 16;
         entities[k].h = 16;
         entities[k].colour = 3;
@@ -2107,9 +2107,9 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
         entities[k].rule = 3;
         entities[k].type = 8;
         entities[k].size = 0;
-        entities[k].tile = 20 + vx;
-        entities[k].xp = xp;
-        entities[k].yp = yp;
+        entities[k].tile = static_cast<int>(20 + vx);
+        entities[k].xp = static_cast<int>(xp);
+        entities[k].yp = static_cast<int>(yp);
         entities[k].w = 16;
         entities[k].h = 16;
         entities[k].colour = 4;
@@ -2133,9 +2133,9 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
         entities[k].type = 9;
         entities[k].size = 5;
         entities[k].life = 0;
-        entities[k].xp = xp;
-        entities[k].yp = yp;
-        entities[k].w = vx;
+        entities[k].xp = static_cast<int>(xp);
+        entities[k].yp = static_cast<int>(yp);
+        entities[k].w = static_cast<int>(vx);
         entities[k].h = 1;
         entities[k].onentity = 1;
         break;
@@ -2144,10 +2144,10 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
         entities[k].type = 10;
         entities[k].size = 6;
         entities[k].life = 0;
-        entities[k].xp = xp;
-        entities[k].yp = yp;
+        entities[k].xp = static_cast<int>(xp);
+        entities[k].yp = static_cast<int>(yp);
         entities[k].w = 1;
-        entities[k].h = vx;
+        entities[k].h = static_cast<int>(vx);
         //entities[k].colour = 0;
         entities[k].onentity = 1;
         break;
@@ -2156,15 +2156,15 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
         entities[k].type = 11;
         entities[k].size = 0;
         entities[k].tile = 18;
-        entities[k].xp = xp;
-        entities[k].yp = yp;
+        entities[k].xp = static_cast<int>(xp);
+        entities[k].yp = static_cast<int>(yp);
         entities[k].w = 16;
         entities[k].h = 16;
         entities[k].colour = 10;
         entities[k].onentity = 1;
         entities[k].animate = 2;
         //Added in port, hope it doesn't break anything
-        entities[k].behave = vx;
+        entities[k].behave = static_cast<int>(vx);
         entities[k].para = vy;
         break;
     case 14: // Teleporter
@@ -2172,8 +2172,8 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
         entities[k].type = 100;
         entities[k].size = 7;
         entities[k].tile = 1; //inactive
-        entities[k].xp = xp;
-        entities[k].yp = yp;
+        entities[k].xp = static_cast<int>(xp);
+        entities[k].yp = static_cast<int>(yp);
         entities[k].w = 96;
         entities[k].h = 96;
         entities[k].colour = 100;
@@ -2192,15 +2192,15 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
         entities[k].type = 12; //A special case!
         entities[k].tile = 144;
         entities[k].colour = 13; //144 for sad :(
-        entities[k].xp = xp;
-        entities[k].yp = yp;
+        entities[k].xp = static_cast<int>(xp);
+        entities[k].yp = static_cast<int>(yp);
         entities[k].cx = 6;
         entities[k].cy = 2;
         entities[k].w = 12;
         entities[k].h = 21;
         entities[k].dir = 0;
 
-        entities[k].state = vx;
+        entities[k].state = static_cast<int>(vx);
 
         entities[k].gravity = true;
         break;
@@ -2209,15 +2209,15 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
         entities[k].type = 12; //A special case!
         entities[k].tile = 144+6;
         entities[k].colour = 14; //144 for sad (upside down+12):(
-        entities[k].xp = xp;
-        entities[k].yp = yp;
+        entities[k].xp = static_cast<int>(xp);
+        entities[k].yp = static_cast<int>(yp);
         entities[k].cx = 6;
         entities[k].cy = 2;
         entities[k].w = 12;
         entities[k].h = 21;
         entities[k].dir = 1;
 
-        entities[k].state = vx;
+        entities[k].state = static_cast<int>(vx);
 
         entities[k].gravity = true;
         break;
@@ -2226,15 +2226,15 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
         entities[k].type = 12; //A special case!
         entities[k].tile = 144;
         entities[k].colour = 16; //144 for sad :(
-        entities[k].xp = xp;
-        entities[k].yp = yp;
+        entities[k].xp = static_cast<int>(xp);
+        entities[k].yp = static_cast<int>(yp);
         entities[k].cx = 6;
         entities[k].cy = 2;
         entities[k].w = 12;
         entities[k].h = 21;
         entities[k].dir = 1;
 
-        entities[k].state = vx;
+        entities[k].state = static_cast<int>(vx);
 
         entities[k].gravity = true;
         break;
@@ -2242,7 +2242,7 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
         //This is the scriping crewmember
         entities[k].rule = 6;
         entities[k].type = 12; //A special case!
-        entities[k].colour = vx;
+        entities[k].colour = static_cast<int>(vx);
         if (int(vy) == 0)
         {
             entities[k].tile = 0;
@@ -2251,8 +2251,8 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
         {
             entities[k].tile = 144;
         }
-        entities[k].xp = xp;
-        entities[k].yp = yp;
+        entities[k].xp = static_cast<int>(xp);
+        entities[k].yp = static_cast<int>(yp);
         entities[k].cx = 6;
         entities[k].cy = 2;
         entities[k].w = 12;
@@ -2260,7 +2260,7 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
         entities[k].dir = 0;
 
         entities[k].state = p1;
-        entities[k].para = p2;
+        entities[k].para = static_cast<float>(p2);
 
         if (p1 == 17)
         {
@@ -2274,15 +2274,15 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
         entities[k].type = 12; //A special case!
         entities[k].tile = 0;
         entities[k].colour = 6; //54 for sad :(
-        entities[k].xp = xp;
-        entities[k].yp = yp;
+        entities[k].xp = static_cast<int>(xp);
+        entities[k].yp = static_cast<int>(yp);
         entities[k].cx = 6;
         entities[k].cy = 2;
         entities[k].w = 12;
         entities[k].h = 21;
         entities[k].dir = 1;
 
-        entities[k].state = vx;
+        entities[k].state = static_cast<int>(vx);
 
         entities[k].gravity = true;
         break;
@@ -2290,9 +2290,9 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
         entities[k].rule = 3;
         entities[k].type = 13;
         entities[k].size = 0;
-        entities[k].tile = 16 + vx;
-        entities[k].xp = xp;
-        entities[k].yp = yp;
+        entities[k].tile = static_cast<int>(16 + vx);
+        entities[k].xp = static_cast<int>(xp);
+        entities[k].yp = static_cast<int>(yp);
         entities[k].w = 16;
         entities[k].h = 16;
         entities[k].colour = 4;
@@ -2309,9 +2309,9 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
         entities[k].rule = 3;
         entities[k].type = 13;
         entities[k].size = 0;
-        entities[k].tile = 16 + vx;
-        entities[k].xp = xp;
-        entities[k].yp = yp;
+        entities[k].tile = static_cast<int>(16 + vx);
+        entities[k].xp = static_cast<int>(xp);
+        entities[k].yp = static_cast<int>(yp);
         entities[k].w = 16;
         entities[k].h = 16;
         entities[k].colour = 4;
@@ -2329,8 +2329,8 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
         entities[k].type = 7;
         entities[k].size = 0;
         entities[k].tile = 22;
-        entities[k].xp = xp;
-        entities[k].yp = yp;
+        entities[k].xp = static_cast<int>(xp);
+        entities[k].yp = static_cast<int>(yp);
         entities[k].w = 16;
         entities[k].h = 16;
         entities[k].colour = 3;
@@ -2345,9 +2345,9 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
         //Given a different behavior, these enemies are especially for SWN mode and disappear outside the screen.
         entities[k].rule = 1;
         entities[k].type = 23;
-        entities[k].xp = xp;
-        entities[k].yp = yp;
-        entities[k].behave = vx;
+        entities[k].xp = static_cast<int>(xp);
+        entities[k].yp = static_cast<int>(yp);
+        entities[k].behave = static_cast<int>(vx);
         entities[k].para = vy;
         entities[k].w = 16;
         entities[k].h = 16;
@@ -2376,7 +2376,7 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
         //This special crewmember is way more advanced than the usual kind, and can interact with game objects
         entities[k].rule = 6;
         entities[k].type = 14; //A special case!
-        entities[k].colour = vx;
+        entities[k].colour = static_cast<int>(vx);
         if( (vx)==16)
         {
             //victoria is sad!
@@ -2394,8 +2394,8 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
         {
             entities[k].tile = 144;
         }
-        entities[k].xp = xp;
-        entities[k].yp = yp;
+        entities[k].xp = static_cast<int>(xp);
+        entities[k].yp = static_cast<int>(yp);
         entities[k].cx = 6;
         entities[k].cy = 2;
         entities[k].w = 12;
@@ -2408,7 +2408,7 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
         entities[k].y2 = 340;
 
         entities[k].state = p1;
-        entities[k].para = p2;
+        entities[k].para = static_cast<float>(p2);
 
         if (p1 == 17)
         {
@@ -2421,8 +2421,8 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
         entities[k].rule = 3;
         entities[k].type = 15;
         entities[k].size = 0;
-        entities[k].xp = xp;
-        entities[k].yp = yp;
+        entities[k].xp = static_cast<int>(xp);
+        entities[k].yp = static_cast<int>(yp);
         entities[k].w = 16;
         entities[k].h = 16;
         entities[k].colour = 4;
@@ -2432,48 +2432,48 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
 
         //Decide tile here based on given achievement: both whether you have them and what they are
         //default is just a trophy base:
-        entities[k].tile = 180 + vx;
+        entities[k].tile = static_cast<int>(180 + vx);
         switch(int(vy))
         {
         case 1:
             if(game.bestrank[0]>=3)
             {
-                entities[k].tile = 184 + vx;
+                entities[k].tile = static_cast<int>(184 + vx);
                 entities[k].colour = 31;
             }
             break;
         case 2:
             if(game.bestrank[1]>=3)
             {
-                entities[k].tile = 186 + vx;
+                entities[k].tile = static_cast<int>(186 + vx);
                 entities[k].colour = 35;
             }
             break;
         case 3:
             if(game.bestrank[2]>=3)
             {
-                entities[k].tile = 184 + vx;
+                entities[k].tile = static_cast<int>(184 + vx);
                 entities[k].colour = 33;
             }
             break;
         case 4:
             if(game.bestrank[3]>=3)
             {
-                entities[k].tile = 184 + vx;
+                entities[k].tile = static_cast<int>(184 + vx);
                 entities[k].colour = 32;
             }
             break;
         case 5:
             if(game.bestrank[4]>=3)
             {
-                entities[k].tile = 184 + vx;
+                entities[k].tile = static_cast<int>(184 + vx);
                 entities[k].colour = 34;
             }
             break;
         case 6:
             if(game.bestrank[5]>=3)
             {
-                entities[k].tile = 184 + vx;
+                entities[k].tile = static_cast<int>(184 + vx);
                 entities[k].colour = 30;
             }
             break;
@@ -2481,7 +2481,7 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
         case 7:
             if(game.unlock[5])
             {
-                entities[k].tile = 188 + vx;
+                entities[k].tile = static_cast<int>(188 + vx);
                 entities[k].colour = 37;
                 entities[k].h += 3;
             }
@@ -2489,7 +2489,7 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
         case 8:
             if(game.unlock[19])
             {
-                entities[k].tile = 188 + vx;
+                entities[k].tile = static_cast<int>(188 + vx);
                 entities[k].colour = 37;
                 entities[k].h += 3;
             }
@@ -2500,7 +2500,7 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
             {
                 if (game.bestgamedeaths <= 50)
                 {
-                    entities[k].tile = 182 + vx;
+                    entities[k].tile = static_cast<int>(182 + vx);
                     entities[k].colour = 40;
                 }
             }
@@ -2510,7 +2510,7 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
             {
                 if (game.bestgamedeaths <= 100)
                 {
-                    entities[k].tile = 182 + vx;
+                    entities[k].tile = static_cast<int>(182 + vx);
                     entities[k].colour = 36;
                 }
             }
@@ -2520,7 +2520,7 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
             {
                 if (game.bestgamedeaths <= 250)
                 {
-                    entities[k].tile = 182 + vx;
+                    entities[k].tile = static_cast<int>(182 + vx);
                     entities[k].colour = 38;
                 }
             }
@@ -2530,7 +2530,7 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
             {
                 if (game.bestgamedeaths <= 500)
                 {
-                    entities[k].tile = 182 + vx;
+                    entities[k].tile = static_cast<int>(182 + vx);
                     entities[k].colour = 39;
                 }
             }
@@ -2539,42 +2539,42 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
         case 13:
             if(game.swnbestrank>=1)
             {
-                entities[k].tile = 182 + vx;
+                entities[k].tile = static_cast<int>(182 + vx);
                 entities[k].colour = 39;
             }
             break;
         case 14:
             if(game.swnbestrank>=2)
             {
-                entities[k].tile =  (182 + vx);
+                entities[k].tile =  static_cast<int>(182 + vx);
                 entities[k].colour = 39;
             }
             break;
         case 15:
             if(game.swnbestrank>=3)
             {
-                entities[k].tile =  (182 + vx);
+                entities[k].tile =  static_cast<int>(182 + vx);
                 entities[k].colour = 39;
             }
             break;
         case 16:
             if(game.swnbestrank>=4)
             {
-                entities[k].tile =  (182 + vx);
+                entities[k].tile =  static_cast<int>(182 + vx);
                 entities[k].colour = 38;
             }
             break;
         case 17:
             if(game.swnbestrank>=5)
             {
-                entities[k].tile =  (182 + vx);
+                entities[k].tile =  static_cast<int>(182 + vx);
                 entities[k].colour = 36;
             }
             break;
         case 18:
             if(game.swnbestrank>=6)
             {
-                entities[k].tile =  (182 + vx);
+                entities[k].tile =  static_cast<int>(182 + vx);
                 entities[k].colour = 40;
             }
             break;
@@ -2598,8 +2598,8 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
         entities[k].type = 11;
         entities[k].size = 0;
         entities[k].tile = 18;
-        entities[k].xp =  (xp);
-        entities[k].yp =  (yp);
+        entities[k].xp =  static_cast<int>(xp);
+        entities[k].yp =  static_cast<int>(yp);
         entities[k].w = 16;
         entities[k].h = 16;
         entities[k].colour = 3;
@@ -2614,10 +2614,10 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
         entities[k].type = 51;
         entities[k].size = 6;
         entities[k].life = 0;
-        entities[k].xp = xp;
-        entities[k].yp = yp;
+        entities[k].xp = static_cast<int>(xp);
+        entities[k].yp = static_cast<int>(yp);
         entities[k].w = 1;
-        entities[k].h = vx;
+        entities[k].h = static_cast<int>(vx);
         //entities[k].colour = 0;
         entities[k].onentity = 1;
         entities[k].invis=true;
@@ -2628,10 +2628,10 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
         entities[k].type = 52;
         entities[k].size = 6;
         entities[k].life = 0;
-        entities[k].xp = xp;
-        entities[k].yp = yp;
+        entities[k].xp = static_cast<int>(xp);
+        entities[k].yp = static_cast<int>(yp);
         entities[k].w = 1;
-        entities[k].h = vx;
+        entities[k].h = static_cast<int>(vx);
         //entities[k].colour = 0;
         entities[k].onentity = 1;
         entities[k].invis=true;
@@ -2642,9 +2642,9 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
         entities[k].type = 53;
         entities[k].size = 5;
         entities[k].life = 0;
-        entities[k].xp = xp;
-        entities[k].yp = yp;
-        entities[k].w = vx;
+        entities[k].xp = static_cast<int>(xp);
+        entities[k].yp = static_cast<int>(yp);
+        entities[k].w = static_cast<int>(vx);
         entities[k].h = 1;
         entities[k].onentity = 1;
         entities[k].invis=true;
@@ -2655,9 +2655,9 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
         entities[k].type = 54;
         entities[k].size = 5;
         entities[k].life = 0;
-        entities[k].xp = xp;
-        entities[k].yp = yp;
-        entities[k].w = vx;
+        entities[k].xp = static_cast<int>(xp);
+        entities[k].yp = static_cast<int>(yp);
+        entities[k].w = static_cast<int>(vx);
         entities[k].h = 1;
         entities[k].onentity = 1;
         entities[k].invis=true;
@@ -2674,8 +2674,8 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
           entities[k].tile = 0;
         }
         entities[k].colour = crewcolour(int(vy));
-        entities[k].xp = xp;
-        entities[k].yp = yp;
+        entities[k].xp = static_cast<int>(xp);
+        entities[k].yp = static_cast<int>(yp);
         entities[k].cx = 6;
         entities[k].cy = 2;
         entities[k].w = 12;
@@ -2695,9 +2695,9 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
       case 56: //Custom enemy
         entities[k].rule = 1;
         entities[k].type = 1;
-        entities[k].xp = xp;
-        entities[k].yp = yp;
-        entities[k].behave = vx;
+        entities[k].xp = static_cast<int>(xp);
+        entities[k].yp = static_cast<int>(yp);
+        entities[k].behave = static_cast<int>(vx);
         entities[k].para = vy;
         entities[k].w = 16;
         entities[k].h = 16;
@@ -2889,7 +2889,7 @@ bool entityclass::updateentities( int i, UtilityClass& help, Game& game, musiccl
                     if (entities[i].state == 0)
                     {
                         //Init
-                        entities[i].vx = static_cast<int>(entities[i].para);
+                        entities[i].vx = static_cast<float>(static_cast<int>(entities[i].para));
                         entities[i].state = 1;
                         entities[i].onwall = 2;
                     }
@@ -2905,15 +2905,15 @@ bool entityclass::updateentities( int i, UtilityClass& help, Game& game, musiccl
                 case 6: //Always move up
                     if (entities[i].state == 0)   //Init
                     {
-                        entities[i].vy = static_cast<int>(entities[i].para);
+                        entities[i].vy = static_cast<float>(static_cast<int>(entities[i].para));
                         entities[i].state = 1;
                         entities[i].onwall = 2;
                     }
                     else if (entities[i].state == 2)
                     {
-                        entities[i].vy = static_cast<int>(-entities[i].para);
+                        entities[i].vy = static_cast<float>(static_cast<int>(-entities[i].para));
                         entities[i].onwall = 0;
-                        entities[i].yp -=  (entities[i].para);
+                        entities[i].yp -=  static_cast<int>(entities[i].para);
                         entities[i].statedelay=8;
                         entities[i].state=0;
                     }
@@ -2921,7 +2921,7 @@ bool entityclass::updateentities( int i, UtilityClass& help, Game& game, musiccl
                 case 7: //Always move down
                     if (entities[i].state == 0)   //Init
                     {
-                        entities[i].vx = static_cast<int>(entities[i].para);
+                        entities[i].vx = static_cast<float>(static_cast<int>(entities[i].para));
                     }
                     break;
                 case 8:
@@ -3087,13 +3087,13 @@ bool entityclass::updateentities( int i, UtilityClass& help, Game& game, musiccl
                     }
                     else if (entities[i].state == 2)
                     {
-                        entities[i].vx = int(entities[i].para);
+                        entities[i].vx = static_cast<float>(static_cast<int>(entities[i].para));
                         entities[i].onwall = 3;
                         entities[i].state = 1;
                     }
                     else if (entities[i].state == 3)
                     {
-                        entities[i].vx = int(-entities[i].para);
+                        entities[i].vx = static_cast<float>(static_cast<int>(-entities[i].para));
                         entities[i].onwall = 2;
                         entities[i].state = 1;
                     }
@@ -3257,7 +3257,7 @@ bool entityclass::updateentities( int i, UtilityClass& help, Game& game, musiccl
                     }
                     entities[i].colour = 5;
                     entities[i].onentity = 0;
-                    game.savepoint = entities[i].para;
+                    game.savepoint = static_cast<int>(entities[i].para);
                     music.playef(5,10);
 
                     game.savex = entities[i].xp - 4;
@@ -3745,7 +3745,7 @@ bool entityclass::updateentities( int i, UtilityClass& help, Game& game, musiccl
                 {
                     trophytext+=2;
                     if (trophytext > 30) trophytext = 30;
-                    trophytype = entities[i].para;
+                    trophytype = static_cast<int>(entities[i].para);
 
                     entities[i].state = 0;
                 }
@@ -4966,7 +4966,7 @@ bool entityclass::testwallsx( int t, mapclass& map, int tx, int ty )
     dx = 0;
     dy = 0;
     if (entities[t].rule == 0) dx = entities[t].vx;
-    dr = entities[t].rule;
+    dr = static_cast<float>(entities[t].rule);
 
     //Ok, now we check walls
     if (checkwall(map))
@@ -5013,7 +5013,7 @@ bool entityclass::testwallsy( int t, mapclass& map, float tx, float ty )
     dx = 0;
     dy = 0;
     if (entities[t].rule == 0) dy = entities[t].vy;
-    dr = entities[t].rule;
+    dr = static_cast<float>(entities[t].rule);
 
     //Ok, now we check walls
     if (checkwall(map))
@@ -5021,13 +5021,13 @@ bool entityclass::testwallsy( int t, mapclass& map, float tx, float ty )
         if (entities[t].vy > 1)
         {
             entities[t].vy--;
-            entities[t].newyp = int(entities[t].yp + entities[t].vy);
+            entities[t].newyp = static_cast<float>(static_cast<int>(entities[t].yp + entities[t].vy));
             return testwallsy(t, map, entities[t].xp, entities[t].newyp);
         }
         else if (entities[t].vy < -1)
         {
             entities[t].vy++;
-            entities[t].newyp = int(entities[t].yp + entities[t].vy);
+            entities[t].newyp = static_cast<float>(static_cast<int>(entities[t].yp + entities[t].vy));
             return testwallsy(t, map, entities[t].xp, entities[t].newyp);
         }
         else
@@ -5120,7 +5120,7 @@ void entityclass::entitymapcollision( int t, mapclass& map )
 {
     if (testwallsx(t, map, entities[t].newxp, entities[t].yp))
     {
-        entities[t].xp = entities[t].newxp;
+        entities[t].xp = static_cast<int>(entities[t].newxp);
     }
     else
     {
@@ -5129,7 +5129,7 @@ void entityclass::entitymapcollision( int t, mapclass& map )
     }
     if (testwallsy(t, map, entities[t].xp, entities[t].newyp))
     {
-        entities[t].yp = entities[t].newyp;
+        entities[t].yp = static_cast<int>(entities[t].newyp);
     }
     else
     {
@@ -5151,7 +5151,7 @@ void entityclass::movingplatformfix( int t, mapclass& map )
         {
             entities[j].yp = entities[j].yp - int(entities[j].vy);
             entities[j].vy = entities[t].vy;
-            entities[j].newyp = entities[j].yp + int(entities[j].vy);
+            entities[j].newyp = static_cast<float>(entities[j].yp + int(entities[j].vy));
             if (testwallsy(j, map, entities[j].xp, entities[j].newyp))
             {
                  if (entities[t].vy > 0)
@@ -5182,10 +5182,10 @@ void entityclass::scmmovingplatformfix( int t, mapclass& map )
     if (entitycollide(t, j))
     {
         //ok, bollox, let's make sure
-        entities[j].yp = entities[j].yp +  (entities[j].vy);
+        entities[j].yp = static_cast<int>(entities[j].yp +  (entities[j].vy));
         if (entitycollide(t, j))
         {
-            entities[j].yp = entities[j].yp -  (entities[j].vy);
+            entities[j].yp = static_cast<int>(entities[j].yp -  (entities[j].vy));
             entities[j].vy = entities[t].vy;
             entities[j].newyp = static_cast<float>(entities[j].yp) + entities[j].vy;
             if (testwallsy(j, map, entities[j].xp, entities[j].newyp))

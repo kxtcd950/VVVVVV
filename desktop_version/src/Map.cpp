@@ -565,9 +565,9 @@ void mapclass::changefinalcol(int t, entityclass& obj, Game& /*game*/)
 
 void mapclass::setcol(const int r1, const int g1, const int b1 , const int r2, const int g2, const int b2, const int c)
 {
-	r = intpol(r1, r2, c / 5);
-	g = intpol(g1, g2, c / 5);
-	b = intpol(b1, b2, c / 5);
+	r = intpol(r1, r2, static_cast<float>(c / 5));
+	g = intpol(g1, g2, static_cast<float>(c / 5));
+	b = intpol(b1, b2, static_cast<float>(c / 5));
 }
 
 void mapclass::updatetowerglow()
@@ -850,12 +850,12 @@ void mapclass::resetplayer(Graphics& dwgfx, Game& game, entityclass& obj, musicc
 		// If we entered a tower as part of respawn, reposition camera
 		if (!was_in_tower && towermode)
 		{
-			ypos = obj.entities[i].yp - 120;
+			ypos = static_cast<float>(obj.entities[i].yp - 120);
 			if (ypos < 0)
 			{
 				ypos = 0;
 			}
-			bypos = ypos / 2;
+			bypos = static_cast<int>(ypos / 2);
 		}
 	}
 
@@ -1258,7 +1258,7 @@ void mapclass::loadlevel(int rx, int ry, Graphics& dwgfx, Game& game, entityclas
 				obj.entities[player].yp += (671 * 8);
 
 				ypos = (700-29) * 8;
-				bypos = ypos / 2;
+				bypos = static_cast<int>(ypos / 2);
 				cameramode = 0;
 				colstate = 0;
 				colsuperstate = 0;
@@ -1472,7 +1472,7 @@ void mapclass::loadlevel(int rx, int ry, Graphics& dwgfx, Game& game, entityclas
 		finaly--;
 
 		ypos = (100-29) * 8;
-		bypos = ypos/2;
+		bypos = static_cast<int>(ypos/2);
 		cameramode = 0;
 		colstate = 0;
 		colsuperstate = 0;}
@@ -1513,7 +1513,7 @@ void mapclass::loadlevel(int rx, int ry, Graphics& dwgfx, Game& game, entityclas
 		finaly--;
 
 		ypos = (100-29) * 8;
-		bypos = ypos/2;
+		bypos = static_cast<int>(ypos/2);
 		cameramode = 0;
 		colstate = 0;
 		colsuperstate = 0;
@@ -1867,8 +1867,8 @@ void mapclass::loadlevel(int rx, int ry, Graphics& dwgfx, Game& game, entityclas
 				if (obj.entities[i].type == 1 && obj.entities[i].behave >= 8 && obj.entities[i].behave < 10)
 				{
 					//put a block underneath
-					temp = obj.entities[i].xp / 8.0f;
-					temp2 = obj.entities[i].yp / 8.0f;
+					temp = static_cast<int>(obj.entities[i].xp / 8.0f);
+					temp2 = static_cast<int>(obj.entities[i].yp / 8.0f);
 					settile(temp, temp2, 1);
 					settile(temp+1, temp2, 1);
 					settile(temp+2, temp2, 1);
