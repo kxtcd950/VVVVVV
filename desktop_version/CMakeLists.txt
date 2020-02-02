@@ -29,6 +29,16 @@ IF(APPLE)
 	MESSAGE(STATUS "Using macOS SDK at ${CMAKE_OSX_SYSROOT}")
 ENDIF()
 
+IF(WIN32)
+	# Need to work out equivalent parameters to Mac C++ compiler and gcc.
+	# 4127: conditional expression is constant (SDL_ASSERT provokes this)
+	# 4456: declaration hides previous local declaration 
+	# 4457: declaration hides function parameter
+	# 4458: local declaration hides class scoped definition
+	# 4459: declaration hides global declaration
+	ADD_DEFINITIONS(-wd4127 -wd4456 -wd4457 -wd4458 -wd4459 -D_CRT_SECURE_NO_WARNINGS -D_CRT_NONSTDC_NO_WARNINGS)
+ENDIF()
+
 # Compiler Flags
 ADD_DEFINITIONS(-DPHYSFS_SUPPORTS_DEFAULT=0 -DPHYSFS_SUPPORTS_ZIP=1)
 
