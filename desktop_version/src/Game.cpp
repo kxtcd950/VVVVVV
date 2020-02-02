@@ -4708,7 +4708,7 @@ void Game::savestats( mapclass& _map, Graphics& _dwgfx )
     FILESYSTEM_saveTiXmlDocument("saves/unlock.vvv", &doc);
 }
 
-void Game::customstart( entityclass& obj, musicclass& music )
+void Game::customstart( entityclass& /*obj*/, musicclass& /*music*/ )
 {
     jumpheld = true;
 
@@ -4736,7 +4736,7 @@ void Game::customstart( entityclass& obj, musicclass& music )
     //if (!nocutscenes) music.play(5);
 }
 
-void Game::start( entityclass& obj, musicclass& music )
+void Game::start( entityclass& /*obj*/, musicclass& music )
 {
     jumpheld = true;
 
@@ -4814,7 +4814,7 @@ void Game::deathsequence( mapclass& map, entityclass& obj, musicclass& music )
     }
 }
 
-void Game::startspecial( int t, entityclass& obj, musicclass& music )
+void Game::startspecial( int t, entityclass& /*obj*/, musicclass& /*music*/ )
 {
     jumpheld = true;
 
@@ -4855,7 +4855,7 @@ void Game::startspecial( int t, entityclass& obj, musicclass& music )
     lifeseq = 0;
 }
 
-void Game::starttrial( int t, entityclass& obj, musicclass& music )
+void Game::starttrial( int t, entityclass& /*obj*/, musicclass& /*music*/ )
 {
     jumpheld = true;
 
@@ -5118,7 +5118,7 @@ void Game::loadquick( mapclass& map, entityclass& obj, musicclass& music )
         }
         else if (pKey == "hardestroom")
         {
-            hardestroom = atoi(pText);
+            hardestroom = atoi(pText); // Genuine bug?
         }
         else if (pKey == "hardestroomdeaths")
         {
@@ -5386,7 +5386,7 @@ void Game::customloadquick(std::string savfile, mapclass& map, entityclass& obj,
         }
         else if (pKey == "hardestroom")
         {
-            hardestroom = atoi(pText);
+            hardestroom = atoi(pText); // Genuine bug?
         }
         else if (pKey == "hardestroomdeaths")
         {

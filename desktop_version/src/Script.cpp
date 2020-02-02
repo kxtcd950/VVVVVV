@@ -2532,7 +2532,7 @@ void scriptclass::run( KeyPoll& key, Graphics& dwgfx, Game& game, mapclass& map,
 	}
 }
 
-void scriptclass::resetgametomenu( Graphics& dwgfx, Game& game,mapclass& map, entityclass& obj, UtilityClass& help, musicclass& music )
+void scriptclass::resetgametomenu( Graphics& dwgfx, Game& game,mapclass& /*map*/, entityclass& obj, UtilityClass& /*help*/, musicclass& /*music*/ )
 {
 	game.gamestate = TITLEMODE;
 	dwgfx.flipmode = false;
@@ -3317,7 +3317,7 @@ void scriptclass::startgamemode( int t, KeyPoll& key, Graphics& dwgfx, Game& gam
 	}
 }
 
-void scriptclass::teleport( Graphics& dwgfx, Game& game, mapclass& map, entityclass& obj, UtilityClass& help, musicclass& music )
+void scriptclass::teleport( Graphics& dwgfx, Game& game, mapclass& map, entityclass& obj, UtilityClass& /*help*/, musicclass& music )
 {
 	//er, ok! Teleport to a new area, so!
 	//A general rule of thumb: if you teleport with a companion, get rid of them!
@@ -3425,7 +3425,7 @@ void scriptclass::teleport( Graphics& dwgfx, Game& game, mapclass& map, entitycl
 	}
 }
 
-void scriptclass::hardreset( KeyPoll& key, Graphics& dwgfx, Game& game,mapclass& map, entityclass& obj, UtilityClass& help, musicclass& music )
+void scriptclass::hardreset( KeyPoll& /*key*/, Graphics& dwgfx, Game& game,mapclass& map, entityclass& obj, UtilityClass& /*help*/, musicclass& /*music*/ )
 {
 	//Game:
 	game.hascontrol = true;

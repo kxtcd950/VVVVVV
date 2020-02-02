@@ -228,7 +228,7 @@ void entityclass::gravcreate( Game& game, int ypos, int dir, int xoff /*= 0*/, i
     }
 }
 
-void entityclass::generateswnwave( Game& game, UtilityClass& help, int t )
+void entityclass::generateswnwave( Game& game, UtilityClass& /*help*/, int t )
 {
     //generate a wave for the SWN game
     if(game.swndelay<=0)
@@ -3937,7 +3937,7 @@ bool entityclass::updateentities( int i, UtilityClass& help, Game& game, musiccl
     return true;
 }
 
-void entityclass::animateentities( int _i, Game& game, UtilityClass& help )
+void entityclass::animateentities( int _i, Game& game, UtilityClass& /*help*/ )
 {
     if(entities[_i].active)
     {
@@ -4315,7 +4315,7 @@ bool entityclass::gettype( int t )
     return false;
 }
 
-int entityclass::getcompanion( int t )
+int entityclass::getcompanion( int /*t*/ )
 {
     //Returns the index of the companion with rule t
     for (int i = 0; i < nentity; i++)
@@ -4471,7 +4471,7 @@ bool entityclass::entitycollide( int a, int b )
     return false;
 }
 
-bool entityclass::checkdirectional( int t )
+bool entityclass::checkdirectional( int /*t*/ )
 {
     //Returns true if player entity (rule 0) moving in dir t through directional block
     for(int i=0; i < nentity; i++)
@@ -4888,7 +4888,7 @@ bool entityclass::entitywarpvlinecollide(int t, int l) {
 	return false;
 }
 
-float entityclass::entitycollideplatformroof( mapclass& map, int t )
+float entityclass::entitycollideplatformroof( mapclass& /*map*/, int t )
 {
     tempx = entities[t].xp + entities[t].cx;
     tempy = entities[t].yp + entities[t].cy -1;
@@ -4904,7 +4904,7 @@ float entityclass::entitycollideplatformroof( mapclass& map, int t )
     return -1000;
 }
 
-float entityclass::entitycollideplatformfloor( mapclass& map, int t )
+float entityclass::entitycollideplatformfloor( mapclass& /*map*/, int t )
 {
     tempx = entities[t].xp + entities[t].cx;
     tempy = entities[t].yp + entities[t].cy + 1;
@@ -5211,7 +5211,7 @@ void entityclass::scmmovingplatformfix( int t, mapclass& map )
     }
 }
 
-void entityclass::hormovingplatformfix( int t, mapclass& map )
+void entityclass::hormovingplatformfix( int t, mapclass& /*map*/ )
 {
     //If this intersects the player, then we move the player along it
     //for horizontal platforms, this is simplier

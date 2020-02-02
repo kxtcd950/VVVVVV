@@ -3599,7 +3599,7 @@ void editorrender( KeyPoll& key, Graphics& dwgfx, Game& game, mapclass& map, ent
     //dwgfx.backbuffer.unlock();
 }
 
-void editorlogic( KeyPoll& key, Graphics& dwgfx, Game& game, entityclass& obj, musicclass& music, mapclass& map, UtilityClass& help )
+void editorlogic( KeyPoll& /*key*/, Graphics& dwgfx, Game& game, entityclass& /*obj*/, musicclass& music, mapclass& map, UtilityClass& help )
 {
     //Misc
     help.updateglow();
