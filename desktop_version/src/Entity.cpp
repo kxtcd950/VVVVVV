@@ -2084,7 +2084,7 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
 
         //Check if it's already been collected
         entities[k].para = vx;
-        if (collect[vx] == 1) entities[k].active = false;
+        if (collect[static_cast<unsigned int>(vx)] == 1) entities[k].active = false;
         break;
     case 9: //Something Shiny
         entities[k].rule = 3;
@@ -2101,7 +2101,7 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
 
         //Check if it's already been collected
         entities[k].para = vx;
-        if (collect[vx] == 1) entities[k].active = false;
+        if (collect[static_cast<unsigned int>(vx)] == 1) entities[k].active = false;
         break;
     case 10: //Savepoint
         entities[k].rule = 3;
@@ -2339,7 +2339,7 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
 
         //Check if it's already been collected
         entities[k].para = vx;
-        if (collect[ (vx)] == 0) entities[k].active = false;
+        if (collect[static_cast<unsigned int>(vx)] == 0) entities[k].active = false;
         break;
     case 23: //SWN Enemies
         //Given a different behavior, these enemies are especially for SWN mode and disappear outside the screen.
@@ -2690,7 +2690,7 @@ void entityclass::createentity( Game& game, float xp, float yp, int t, float vx 
 
         //Check if it's already been collected
         entities[k].para = vx;
-        if (customcollect[vx] == 1) entities[k].active = false;
+        if (customcollect[static_cast<unsigned int>(vx)] == 1) entities[k].active = false;
         break;
       case 56: //Custom enemy
         entities[k].rule = 1;
@@ -3211,7 +3211,7 @@ bool entityclass::updateentities( int i, UtilityClass& help, Game& game, musiccl
                 {
                     game.coins++;
                     music.playef(4,10);
-                    collect[entities[i].para] = 1;
+                    collect[static_cast<unsigned int>(entities[i].para)] = 1;
 
                     entities[i].active = false;
                 }
@@ -3223,7 +3223,7 @@ bool entityclass::updateentities( int i, UtilityClass& help, Game& game, musiccl
                     game.trinkets++;
                     if (game.intimetrial)
                     {
-                        collect[entities[i].para] = 1;
+                        collect[static_cast<unsigned int>(entities[i].para)] = 1;
                         music.playef(25,10);
                     }
                     else
@@ -3232,7 +3232,7 @@ bool entityclass::updateentities( int i, UtilityClass& help, Game& game, musiccl
                         //music.haltdasmusik();
                         if(music.currentsong!=-1) music.silencedasmusik();
                         music.playef(3,10);
-                        collect[entities[i].para] = 1;
+                        collect[static_cast<unsigned int>(entities[i].para)] = 1;
                         if (game.trinkets > game.stat_trinkets)
                         {
                             game.stat_trinkets = game.trinkets;
@@ -3845,7 +3845,7 @@ bool entityclass::updateentities( int i, UtilityClass& help, Game& game, musiccl
                     game.crewmates++;
                     if (game.intimetrial)
                     {
-                        customcollect[entities[i].para] = 1;
+                        customcollect[static_cast<unsigned int>(entities[i].para)] = 1;
                         music.playef(27,10);
                     }
                     else
@@ -3854,7 +3854,7 @@ bool entityclass::updateentities( int i, UtilityClass& help, Game& game, musiccl
                         //music.haltdasmusik();
                         if(music.currentsong!=-1) music.silencedasmusik();
                         music.playef(27,10);
-                        customcollect[entities[i].para] = 1;
+                        customcollect[static_cast<unsigned int>(entities[i].para)] = 1;
                     }
 
                     entities[i].active = false;
