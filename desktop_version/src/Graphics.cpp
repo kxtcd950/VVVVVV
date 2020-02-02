@@ -1985,22 +1985,22 @@ void Graphics::drawbackground( int t, mapclass& map )
             {
                 //Akward ordering to match tileset
             case 0:
-                bcol2 = RGBflip(0, 16*backboxint[0], 16*backboxint[0]);
+                bcol2 = RGBflip(0, static_cast<Uint8>(16*backboxint[0]), static_cast<Uint8>(16*backboxint[0]));
                 break; //Cyan
             case 1:
-                bcol2 = RGBflip(16*backboxint[0], 0, 0);
+                bcol2 = RGBflip(static_cast<Uint8>(16*backboxint[0]), 0, 0);
                 break;  //Red
             case 2:
-                bcol2 = RGBflip(16*backboxint[0], 0, 16*backboxint[0]);
+                bcol2 = RGBflip(static_cast<Uint8>(16*backboxint[0]), 0, static_cast<Uint8>(16*backboxint[0]));
                 break; //Purple
             case 3:
-                bcol2 = RGBflip(0, 0, 16*backboxint[0]);
+                bcol2 = RGBflip(0, 0, static_cast<Uint8>(16*backboxint[0]));
                 break;  //Blue
             case 4:
-                bcol2 = RGBflip(16*backboxint[0], 16*backboxint[0], 0);
+                bcol2 = RGBflip(static_cast<Uint8>(16*backboxint[0]), static_cast<Uint8>(16*backboxint[0]), 0);
                 break; //Yellow
             case 5:
-                bcol2 = RGBflip(0, 16 * backboxint[0], 0);
+                bcol2 = RGBflip(0, static_cast<Uint8>(16 * backboxint[0]), 0);
                 break;  //Green
             case 6:
                 //crazy case
@@ -2014,40 +2014,40 @@ void Graphics::drawbackground( int t, mapclass& map )
                 switch(spcol)
                 {
                 case 0:
-                    bcol2 = RGBflip(0, 16*backboxint[0], 16*backboxint[0]);
+                    bcol2 = RGBflip(0, static_cast<Uint8>(16*backboxint[0]), static_cast<Uint8>(16*backboxint[0]));
                     break; //Cyan
                 case 1:
-                    bcol2 = RGBflip(0, (spcoldel+1)*backboxint[0], 16*backboxint[0]);
+                    bcol2 = RGBflip(0, (static_cast<Uint8>((spcoldel+1)*backboxint[0])), static_cast<Uint8>(16*backboxint[0]));
                     break; //Cyan
                 case 2:
-                    bcol2 = RGBflip(0, 0, 16*backboxint[0]);
+                    bcol2 = RGBflip(0, 0, static_cast<Uint8>(16*backboxint[0]));
                     break;  //Blue
                 case 3:
-                    bcol2 = RGBflip((16-spcoldel)*backboxint[0], 0, 16*backboxint[0]);
+                    bcol2 = RGBflip(static_cast<Uint8>(16-spcoldel*backboxint[0]), 0, static_cast<Uint8>(16*backboxint[0]));
                     break;  //Blue
                 case 4:
-                    bcol2 = RGBflip(16*backboxint[0], 0, 16*backboxint[0]);
+                    bcol2 = RGBflip(static_cast<Uint8>(16*backboxint[0]), 0, static_cast<Uint8>(16*backboxint[0]));
                     break; //Purple
                 case 5:
-                    bcol2 = RGBflip(16*backboxint[0], 0, (spcoldel+1)*backboxint[0]);
+                    bcol2 = RGBflip(static_cast<Uint8>(16*backboxint[0]), 0, static_cast<Uint8>((spcoldel+1)*backboxint[0]));
                     break; //Purple
                 case 6:
-                    bcol2 = RGBflip(16*backboxint[0], 0, 0);
+                    bcol2 = RGBflip(static_cast<Uint8>(16*backboxint[0]), 0, 0);
                     break;  //Red
                 case 7:
-                    bcol2 = RGBflip(16*backboxint[0], (16-spcoldel)*backboxint[0], 0);
+                    bcol2 = RGBflip(static_cast<Uint8>(16*backboxint[0]), static_cast<Uint8>((16-spcoldel)*backboxint[0]), 0);
                     break;  //Red
                 case 8:
-                    bcol2 = RGBflip(16*backboxint[0], 16*backboxint[0], 0);
+                    bcol2 = RGBflip(static_cast<Uint8>(16*backboxint[0]), static_cast<Uint8>(16*backboxint[0]), 0);
                     break; //Yellow
                 case 9:
-                    bcol2 = RGBflip((spcoldel+1)*backboxint[0], 16*backboxint[0], 0);
+                    bcol2 = RGBflip(static_cast<Uint8>((spcoldel+1)*backboxint[0]), static_cast<Uint8>(16*backboxint[0]), 0);
                     break; //Yellow
                 case 10:
-                    bcol2 = RGBflip(0, 16 * backboxint[0], 0);
+                    bcol2 = RGBflip(0, static_cast<Uint8>(16 * backboxint[0]), 0);
                     break;  //Green
                 case 11:
-                    bcol2 = RGBflip(0, 16 * backboxint[0], (16-spcoldel)*backboxint[0]);
+                    bcol2 = RGBflip(0, static_cast<Uint8>(16 * backboxint[0]), static_cast<Uint8>((16-spcoldel)*backboxint[0]));
                     break;  //Green
                 }
             break;
@@ -2060,62 +2060,62 @@ void Graphics::drawbackground( int t, mapclass& map )
             {
                 //Akward ordering to match tileset
             case 0:
-                bcol = RGBflip(16, 128*backboxint[0], 128*backboxint[0]);
+                bcol = RGBflip(16, static_cast<Uint8>(128*backboxint[0]), static_cast<Uint8>(128*backboxint[0]));
                 break; //Cyan
             case 1:
-                bcol = RGBflip(128*backboxint[0], 16, 16);
+                bcol = RGBflip(static_cast<Uint8>(128*backboxint[0]), 16, 16);
                 break;  //Red
             case 2:
-                bcol = RGBflip(128*backboxint[0], 16, 128*backboxint[0]);
+                bcol = RGBflip(static_cast<Uint8>(128*backboxint[0]), 16, static_cast<Uint8>(128*backboxint[0]));
                 break; //Purple
             case 3:
-                bcol = RGBflip(16, 16, 128*backboxint[0]);
+                bcol = RGBflip(16, 16, static_cast<Uint8>(128*backboxint[0]));
                 break;  //Blue
             case 4:
-                bcol = RGBflip(128*backboxint[0], 128*backboxint[0], 16);
+                bcol = RGBflip(static_cast<Uint8>(128*backboxint[0]), static_cast<Uint8>(128*backboxint[0]), 16);
                 break; //Yellow
             case 5:
-                bcol = RGBflip(16, 128 * backboxint[0], 16);
+                bcol = RGBflip(16, static_cast<Uint8>(128 * backboxint[0]), 16);
                 break;  //Green
             case 6:
                 //crazy case
                 switch(spcol)
                 {
                 case 0:
-                    bcol = RGBflip(16, 128*backboxint[0], 128*backboxint[0]);
+                    bcol = RGBflip(16, static_cast<Uint8>(128*backboxint[0]), static_cast<Uint8>(128*backboxint[0]));
                     break; //Cyan
                 case 1:
-                    bcol = RGBflip(16, ((spcoldel+1)*8)*backboxint[0], 128*backboxint[0]);
+                    bcol = RGBflip(16, ((spcoldel+1)*8)*static_cast<Uint8>(backboxint[0]), static_cast<Uint8>(128*backboxint[0]));
                     break; //Cyan
                 case 2:
-                    bcol = RGBflip(16, 16, 128*backboxint[0]);
+                    bcol = RGBflip(16, 16, static_cast<Uint8>(128*backboxint[0]));
                     break;  //Blue
                 case 3:
-                    bcol = RGBflip((128-(spcoldel*8))*backboxint[0], 16, 128*backboxint[0]);
+                    bcol = RGBflip((static_cast<Uint8>((128-(spcoldel*8))*backboxint[0])), 16, static_cast<Uint8>(128*backboxint[0]));
                     break;  //Blue
                 case 4:
-                    bcol = RGBflip(128*backboxint[0], 16, 128*backboxint[0]);
+                    bcol = RGBflip(static_cast<Uint8>(128*backboxint[0]), 16, static_cast<Uint8>(128*backboxint[0]));
                     break; //Purple
                 case 5:
-                    bcol = RGBflip(128*backboxint[0], 16, ((spcoldel+1)*8)*backboxint[0]);
+                    bcol = RGBflip(static_cast<Uint8>(128*backboxint[0]), 16, static_cast<Uint8>(((spcoldel+1)*8)*backboxint[0]));
                     break; //Purple
                 case 6:
-                    bcol = RGBflip(128*backboxint[0], 16, 16);
+                    bcol = RGBflip(static_cast<Uint8>(128*backboxint[0]), 16, 16);
                     break;  //Red
                 case 7:
-                    bcol = RGBflip(128*backboxint[0], (128-(spcoldel*8))*backboxint[0], 16);
+                    bcol = RGBflip(static_cast<Uint8>(128*backboxint[0]), static_cast<Uint8>((128-(spcoldel*8))*backboxint[0]), 16);
                     break;  //Red
                 case 8:
-                    bcol = RGBflip(128*backboxint[0], 128*backboxint[0], 16);
+                    bcol = RGBflip(static_cast<Uint8>(128*backboxint[0]), static_cast<Uint8>(128*backboxint[0]), 16);
                     break; //Yellow
                 case 9:
-                    bcol = RGBflip(((spcoldel+1)*8)*backboxint[0], 128*backboxint[0], 16);
+                    bcol = RGBflip(static_cast<Uint8>(((spcoldel+1)*8)*backboxint[0]), static_cast<Uint8>(128*backboxint[0]), 16);
                     break; //Yellow
                 case 10:
-                    bcol = RGBflip(16, 128 * backboxint[0], 16);
+                    bcol = RGBflip(16, static_cast<Uint8>(128 * backboxint[0]), 16);
                     break;  //Green
                 case 11:
-                    bcol = RGBflip(16, 128 * backboxint[0], (128-(spcoldel*8))*backboxint[0]);
+                    bcol = RGBflip(16, static_cast<Uint8>(128 * backboxint[0]), static_cast<Uint8>((128-(spcoldel*8))*backboxint[0]));
                     break;  //Green
                 }
                 break;
